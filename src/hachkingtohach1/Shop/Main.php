@@ -219,11 +219,11 @@ class Main extends PluginBase implements Listener {
 	{
 		$config = $this->getConfig();
 		$item = Item::get($item, $meta, $count);
-		$money = $this->economyapi->myMoney($player->getName());
+		$money = $this->econapi->myMoney($player->getName());
         $nameplayer = $player->getName();
 	    if ($money >= $values) {
 			// Reduce Money 
-		    $this->economyapi->reduceMoney($player, $values);
+		   $this->econapi->reduceMoney($player, $values);
 			
             if($enchant != "false"){
 				foreach($enchant as $i) {
