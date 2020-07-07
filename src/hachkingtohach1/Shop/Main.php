@@ -147,7 +147,7 @@ class Main extends PluginBase implements Listener {
 							);
 					    }		    
 				    } elseif($i[2] == "EC") {
-					    if(is_numeric($item[0])) {
+					    if(is_numeric($i[0])) {
 				            $item->addEnchantment(
 							    new EnchantmentInstance($this->getEnchantment($i[0])), $i[1]
 							);
