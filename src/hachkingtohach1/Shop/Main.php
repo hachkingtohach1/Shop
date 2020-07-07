@@ -32,7 +32,7 @@ use pocketmine\item\enchantment\{Enchantment,EnchantmentInstance};
 use pocketmine\network\mcpe\protocol\{LevelSoundEventPacket, LevelEventPacket};
 use DaPigGuy\PiggyCustomEnchants\{CustomEnchantManager,PiggyCustomEnchants,utils\Utils};
 
-class Main extends PluginBase {
+class Main extends PluginBase implements Listener {
 	
 	public $id = [];
 	public $econapi = null;
