@@ -69,7 +69,7 @@ class Main extends PluginBase implements Listener {
 	
 	public function getCEnchantment(
 	    string $name,
-		Item $item, int $level
+		$item, int $level
 	) 
 	{
 		$enchant = CustomEnchantManager::getEnchantmentByName($name);
@@ -139,7 +139,7 @@ class Main extends PluginBase implements Listener {
 				    if($i[2] == "CE") {
 					    if(is_string($i[0])) {
 				            $item->addEnchantment(
-							    new EnchantmentInstance($this->getCEnchantment($i[0], $item, $i[1])),
+							    new EnchantmentInstance($this->getCEnchantment($i[0], $item, $i[1]),
 								$i[1]
 							);
 					    } elseif(!is_string($i[0])) {
@@ -150,7 +150,7 @@ class Main extends PluginBase implements Listener {
 				    } elseif($i[2] == "EC") {
 					    if(is_numeric($i[0])) {
 				            $item->addEnchantment(
-							    new EnchantmentInstance($this->getEnchantment($i[0])), $i[1]
+							    new EnchantmentInstance($this->getEnchantment($i[0]), $i[1]
 							);
 					    } elseif(!is_numeric($i[0])) {
 						    $player->sendMessage(
@@ -230,7 +230,7 @@ class Main extends PluginBase implements Listener {
 				    if($i[2] == "CE") {
 					    if(is_string($i[0])) {
 				            $item->addEnchantment(
-							    new EnchantmentInstance($this->getCEnchantment($i[0], $item, $i[1])),
+							    new EnchantmentInstance($this->getCEnchantment($i[0], $item, $i[1]),
 								$i[1]
 							);
 					    } elseif(!is_string($i[0])) {
@@ -241,7 +241,7 @@ class Main extends PluginBase implements Listener {
 				    } elseif($i[2] == "EC") {
 					    if(is_numeric($i[0])) {
 				            $item->addEnchantment(
-							    new EnchantmentInstance($this->getEnchantment($i[0])), $i[1]
+							    new EnchantmentInstance($this->getEnchantment($i[0]), $i[1]
 							);
 					    } elseif(!is_numeric($i[0])) {
 						    $player->sendMessage(
