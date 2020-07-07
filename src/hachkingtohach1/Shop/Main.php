@@ -141,7 +141,7 @@ class Main extends PluginBase {
 				            $item->addEnchantment(
 							    new EnchantmentInstance($this->getCEnchantment($i[0], $item, $i[1]),
 								$i[1]
-							);
+							));
 					    } elseif(!is_string($i[0])) {
 						    $player->sendMessage(
 							    "Some error with item this, need support admin!"
@@ -151,7 +151,7 @@ class Main extends PluginBase {
 					    if(is_numeric($i[0])) {
 				            $item->addEnchantment(
 							    new EnchantmentInstance($this->getEnchantment($i[0]), $i[1]
-							);
+							));
 					    } elseif(!is_numeric($i[0])) {
 						    $player->sendMessage(
 							    "Some error with item this, need support admin!"
@@ -232,7 +232,7 @@ class Main extends PluginBase {
 				            $item->addEnchantment(
 							    new EnchantmentInstance($this->getCEnchantment($i[0], $item, $i[1]),
 								$i[1]
-							);
+							));
 					    } elseif(!is_string($i[0])) {
 						    $player->sendMessage(
 							    "Some error with item this, need support admin!"
@@ -242,7 +242,7 @@ class Main extends PluginBase {
 					    if(is_numeric($i[0])) {
 				            $item->addEnchantment(
 							    new EnchantmentInstance($this->getEnchantment($i[0]), $i[1]
-							);
+							));
 					    } elseif(!is_numeric($i[0])) {
 						    $player->sendMessage(
 							    "Some error with item this, need support admin!"
