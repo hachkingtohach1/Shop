@@ -48,9 +48,9 @@ class Main extends PluginBase implements Listener {
 	
 	public function getAPI() 
 	{
-		$this->econapi = $this->getServer()->getPluginManager()->getPlugin('EconomyAPI');
-		$this->ce = $this->getServer()->getPluginManager()->getPlugin('PiggyCustomEnchants');
-        if($this->econapi == null or $this->ce == null) {
+		$econapi = $this->getServer()->getPluginManager()->getPlugin('EconomyAPI');
+		$ce = $this->getServer()->getPluginManager()->getPlugin('PiggyCustomEnchants');
+        if($econapi == null or $ce == null) {
             $this->getLogger()->warning(
 			    'You need install plugin EconomyAPI and PiggyCustomEnchants to use this plugin!'
 			);			
