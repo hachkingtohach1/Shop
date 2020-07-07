@@ -1,0 +1,49 @@
+---
+# Messages
+buy_done: "§aYou are bought successful!"
+do_not_enought_money: "§cYou don't have enough money!"
+have_sell: "§eYou have sell %name with each one is %money, total money is %tmoney"
+
+# Item in GUI to Sell all
+sell_item:
+        #     ID | Meta | Name Item | Lore Item | CountItem | location
+    - [154, 0, '§l§aSell all items', ['§7Click to sell all!'], 1, 49]
+
+# Items to choose in shop
+# CE is CustomEnchant, EC is EnchantMent and false is not enchantment! 
+# NOTE: EC is enchantment with id like example, and don't let the names overlap!
+items:
+        # You can add Catetory any, Example: this is count 0 -> 3 you can create one catetory with 4 and up !
+    0: 
+        name: "Tool"
+        items:
+                        #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+
+    1: 
+        name: "Food"
+        items:
+                        #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+
+    2:
+        name: "Block"
+        items:        
+                        #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+
+    3:
+        name: "Special"
+        items:        
+                        #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+
+# Items to sell
+items_sell: 
+        #  ID | Money 
+    - [1, 0.5]
+...

@@ -1,0 +1,14 @@
+---
+author: hachkingtohach1
+name: Shop
+api: ["3.0.0"]
+version: 1.6.5_PRE
+main: hachkingtohach1\Shop\Main
+softdepend: [EconomyAPI]
+description: Plugin ShopPRO for pocketmine_pmmp.
+commands:
+    shop:
+        description: /shop
+        default: true
+...
+    
