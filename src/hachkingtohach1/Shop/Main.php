@@ -35,6 +35,7 @@ use DaPigGuy\PiggyCustomEnchants\{CustomEnchantManager,PiggyCustomEnchants,utils
 class Main extends PluginBase implements Listener {
 	
 	public $id = [];
+	public $econapi = null;
 	
 	public function onEnable() : void
 	{
@@ -48,9 +49,9 @@ class Main extends PluginBase implements Listener {
 	
 	public function getAPI() 
 	{
-		$econapi = $this->getServer()->getPluginManager()->getPlugin('EconomyAPI');
+		$this->econapi = $this->getServer()->getPluginManager()->getPlugin('EconomyAPI');
 		$ce = $this->getServer()->getPluginManager()->getPlugin('PiggyCustomEnchants');
-        if($econapi == null or $ce == null) {
+        if($this->econapi == null or $ce == null) {
             $this->getLogger()->warning(
 			    'You need install plugin EconomyAPI and PiggyCustomEnchants to use this plugin!'
 			);			
@@ -191,7 +192,7 @@ class Main extends PluginBase implements Listener {
 			foreach($this->getConfig()->get("items_sell") as $sell) {	
 			    if($item->getId() == $sell[0] && $item->getId() > 0) {
 				    $price = $sell[1] * $item->getCount();
-				    $this->economyapi->addMoney($player, $price);
+				    $this->econapi->addMoney($player, $price);
 				    $player->getInventory()->remove($item);
 					$array_1 = ["%name", "%money", "%tmoney"];
 					$array_2 = ["$name", "$sell[1]", "$price"];
