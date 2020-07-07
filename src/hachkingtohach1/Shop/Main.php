@@ -40,23 +40,25 @@ class Main extends PluginBase implements Listener {
 	public function onEnable() : void
 	{
 		$this->saveDefaultConfig();	
-		$this->getAPI();
+		if(!$this->getAPI()){
+			$this->getServer()->getPluginManager()->disablePlugin($this);
+			return;
+		}
 		if(!InvMenuHandler::isRegistered()){
 			InvMenuHandler::register($this);
 		}
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 	
-	public function getAPI() 
-	{
+	public function getAPI() : bool{
 		$reg = $this->getServer()->getPluginManager();
 		$this->econapi = $reg->getPlugin('EconomyAPI');
 		$ce = $reg->getPlugin('PiggyCustomEnchants');
-        if($this->econapi == null or $ce == null) {
-            $this->getLogger()->warning(
-			    'You need install plugin EconomyAPI and PiggyCustomEnchants to use this plugin!'
-			);							
-		}		
+		if($this->econapi == null or $ce == null) {
+			$this->getLogger()->warning('You need install plugin EconomyAPI and PiggyCustomEnchants to use this plugin!');		
+			return false;
+		}
+		return true;
 	}
 	
 	public function getEnchantment(
