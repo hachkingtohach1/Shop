@@ -201,7 +201,7 @@ class Main extends PluginBase implements Listener {
 					);
 				    $player->getLevel()->broadcastLevelSoundEvent(
 					    $player->asVector3(), LevelSoundEventPacket::SOUND_LEVELUP,
-						(int)mt_rand()
+						mt_rand()
 					);			
 				    $player->removeWindow($inventoryAction->getInventory());				
 				}
@@ -258,14 +258,14 @@ class Main extends PluginBase implements Listener {
             $player->sendMessage($config->get("buy_done"));	
             $player->getLevel()->broadcastLevelSoundEvent(
 			    $player->asVector3(), LevelSoundEventPacket::SOUND_LEVELUP,
-				(int)mt_rand()
+				mt_rand()
 			);			
 		    $player->removeWindow($inventoryAction->getInventory());
 		} else {
 		    $player->sendMessage($config->get("do_not_enought_money"));
 			$player->getLevel()->broadcastLevelSoundEvent(
 			    $player->asVector3(), LevelSoundEventPacket::SOUND_TELEPORT,
-				(int)mt_rand()
+				mt_rand()
 			);
 		    $player->removeWindow($inventoryAction->getInventory());
 	    }	
