@@ -69,7 +69,7 @@ class Main extends PluginBase implements Listener {
 	
 	public function getCEnchantment(
 	    string $name,
-		$item, int $level
+		Item $item, int $level
 	) 
 	{
 		$enchant = CustomEnchantManager::getEnchantmentByName($name);
