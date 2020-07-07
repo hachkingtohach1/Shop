@@ -1,5 +1,5 @@
 # Shop
-One plugin for economy server PMMP (GUI)
+One plugin for economy server PMMP (GUI).
 
 # Config
 
