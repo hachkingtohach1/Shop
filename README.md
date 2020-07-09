@@ -3,8 +3,8 @@ One plugin for economy server PMMP (GUI).
 
 # How to setup ?
 
-Look at the bottom of the #config you'll see zero count as your shop page and the values inside are in order according to your customization.
-'ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result'
+- Look at the bottom of the #config you'll see zero count as your shop page and the values inside are in order according to your customization.
+'''ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result'''
 
 # Config
 
