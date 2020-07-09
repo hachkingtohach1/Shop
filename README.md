@@ -37,7 +37,7 @@ items:
  ```
  
  # Update ?
- - I think, i will make custom setting for it! 😁
+ - I think, i will make custom setting with UI for it! 😁
  
  # Ending
 - Thanks for downloading!
