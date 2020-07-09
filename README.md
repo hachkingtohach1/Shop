@@ -1,5 +1,10 @@
 # Shop 🛒
 One plugin for economy server PMMP (GUI).
+Lib: Invmenu, CustomEnchantment, EconomyAPI 
+
+- Invmenu: https://poggit.pmmp.io/ci/Muqsit/InvMenu/InvMenu
+- CustomEnchantment: https://poggit.pmmp.io/p/PiggyCustomEnchants/2.3.0
+- EconomyAPI: https://poggit.pmmp.io/p/EconomyAPI/5.7.2
 
 # How to setup ?
 - Look at the bottom of the #config you'll see zero count as your shop page and the values inside are in order according to your customization.
@@ -33,3 +38,6 @@ items:
  
  # Update ?
  - I think, i will make custom setting for it! 😁
+ 
+ # Ending
+- Thanks for downloading!
