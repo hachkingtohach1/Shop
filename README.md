@@ -14,7 +14,7 @@ One plugin for economy server PMMP (GUI).
         items:
             #  ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
             - [1, 0, 'Name', ['Money: %money', 'How much?'], 1, 1000, 5, [[9, 1, "EC"]], ['ABC', 'ABCD']]
-            - [1, 0, 'Name', ['Money: %money', 'How much?'], 1, 1000, 5, false, ['ABC', 'ABCD']]
+            - [1, 0, 'Name', ['Money: %money', 'How much?'], 2, 1000, 5, false, ['ABC', 'ABCD']]
 ```
 - You can see the enchant and custom enchat sections if you don't need it, you can leave false.
 
@@ -26,7 +26,7 @@ items:
     0: 
         name: "Tool"
         items:
-                        #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
+             # ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
             - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
             - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]          
  ```
