@@ -18,29 +18,33 @@ items:
         name: "Tool"
         items:
                         #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
-            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
-            - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "EC"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 2, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 3, 1000, 5, false, ['ABC', 'ABCD']]
 
     1: 
         name: "Food"
         items:
                         #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
-            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "EC"]], ['ABC', 'ABCD']]
             - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 3, 1000, 5, false, ['ABC', 'ABCD']]
 
     2:
         name: "Block"
         items:        
                         #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
-            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "EC"]], ['ABC', 'ABCD']]
             - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 3, 1000, 5, false, ['ABC', 'ABCD']]
 
     3:
         name: "Special"
         items:        
                         #    ID | Meta | Name Item | Lore Item | location | Money | Count Item | EnchantMent | Lore Result
-            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 1, 1000, 5, [[9, 1, "EC"]], ['ABC', 'ABCD']]
             - [12, 0, '§l§aSand_2', ['Money: %money', 'Message'], 5, 1000, 5, [["haste", 1, "CE"]], ['ABC', 'ABCD']]
+            - [12, 0, '§l§aSand_1', ['Money: %money', 'Message'], 3, 1000, 5, false, ['ABC', 'ABCD']]
 
 # Items to sell
 items_sell: 
