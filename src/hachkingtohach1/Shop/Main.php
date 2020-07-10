@@ -50,7 +50,11 @@ class Main extends PluginBase implements Listener {
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 	}
 	
-	public function getAPI() : bool{
+	/** 
+	 * Software testing compatibility function ?
+	 */
+	public function getAPI() : bool
+	{
 		$reg = $this->getServer()->getPluginManager();
 		$this->econapi = $reg->getPlugin('EconomyAPI');
 		$ce = $reg->getPlugin('PiggyCustomEnchants');
@@ -61,6 +65,9 @@ class Main extends PluginBase implements Listener {
 		return true;
 	}
 	
+	/**
+	 * @param int $id
+	 */
 	public function getEnchantment(
 	    int $id
 	) 
@@ -69,6 +76,11 @@ class Main extends PluginBase implements Listener {
 		return $enchantment;
 	}
 	
+	/**
+	 * @param string $name
+	 * @param Item $item
+	 * @param int $level
+	 */
 	public function getCEnchantment(
 	    string $name,
 		$item, int $level
@@ -96,6 +108,12 @@ class Main extends PluginBase implements Listener {
 		return $enchant;		
 	}
 	
+	/**
+	 * @param CommandSender $player
+	 * @param Command $cmd
+     * @param String $label
+	 * @param array $args
+	 */
 	public function onCommand(
 	    CommandSender $player,
 		Command $cmd, String $label,
@@ -106,16 +124,16 @@ class Main extends PluginBase implements Listener {
             case "shop":			
 		        if(!$player instanceof Player) return true;
 				$count = count($this->getConfig()->get("items"));
-				$coun_shop = $count - 1;
+				$cts = $count - 1;
                 if(count($args) < 1) {
 				    $player->sendMessage(
-					    "Usage: /shop 0 -> ".$coun_shop
+					    "Usage: /shop 0 -> ".$cts
 					);
 				    return true;
 				}		
                 if($args[0] > $count) {
 				    $player->sendMessage(
-					    "Usage: /shop 0 -> ".$coun_shop
+					    "Usage: /shop 0 -> ".$cts
 					);
 				    return true;
 				}				
@@ -128,9 +146,10 @@ class Main extends PluginBase implements Listener {
 	
 	public function sendShop(Player $player, $type)
 	{
+		$cf = $this->getConfig();
 		$menu = InvMenu::create(InvMenu::TYPE_DOUBLE_CHEST);
-		foreach($this->getConfig()->get("items")[$type]["items"] as $items) {
-            $menu->setName($this->getConfig()->get("items")[$type]["name"]);
+		foreach($cf->get("items")[$type]["items"] as $items) {
+            $menu->setName($cf->get("items")[$type]["name"]);
 		    $menu->readonly();			
 		    $item = Item::get($items[0], $items[1], $items[6]);
 		    $item->setCustomName($items[2]);
@@ -164,7 +183,7 @@ class Main extends PluginBase implements Listener {
 			}			
             $inv->setItem($items[4], $item);
 		}
-		foreach($this->getConfig()->get("sell_item") as $items) {			
+		foreach($cf->get("sell_item") as $items) {			
 		    $item = Item::get($items[0], $items[1], $items[4]);
 		    $item->setCustomName($items[2]);
 		    $item->setLore($items[3]);
@@ -185,13 +204,15 @@ class Main extends PluginBase implements Listener {
 		$menu->send($player);
 	}
 	
-	public function sellAll($player, $inventoryAction) 
+	public function sellAll($player, $inA) 
 	{
+		$cf = $this->getConfig();
+		$vector3p = $player->asVector3();
 		$items = $player->getInventory()->getContents();		
 		foreach($items as $item){
 			$id = $item->getId();
             $name = $item->getName();			
-			foreach($this->getConfig()->get("items_sell") as $sell) {	
+			foreach($cf->get("items_sell") as $sell) {	
 			    if($item->getId() == $sell[0] && $item->getId() > 0) {
 				    $price = $sell[1] * $item->getCount();
 				    $this->econapi->addMoney($player, $price);
@@ -200,13 +221,13 @@ class Main extends PluginBase implements Listener {
 					$array_2 = ["$name", "$sell[1]", "$price"];
 					$player->sendMessage(
 					    str_replace($array_1, $array_2,
-						$this->getConfig()->get("have_sell"))
+						$cf->get("have_sell"))
 					);
 				    $player->getLevel()->broadcastLevelSoundEvent(
-					    $player->asVector3(), LevelSoundEventPacket::SOUND_LEVELUP,
+					    $vector3p, LevelSoundEventPacket::SOUND_LEVELUP,
 						mt_rand()
 					);			
-				    $player->removeWindow($inventoryAction->getInventory());				
+				    $player->removeWindow($inA->getInventory());				
 				}
 			}					
 		}
@@ -215,11 +236,11 @@ class Main extends PluginBase implements Listener {
 	public function paymentGateways(
 	    $player, $values,
 		$item, $meta,
-		$count, $inventoryAction,
+		$count, $inA,
 		$enchant, $lore, $nametag
 	) 
 	{
-		$config = $this->getConfig();
+		$cf = $this->getConfig();
 		$item = Item::get($item, $meta, $count);
 		$money = $this->econapi->myMoney($player->getName());
         $nameplayer = $player->getName();
@@ -256,42 +277,42 @@ class Main extends PluginBase implements Listener {
 			
             $item->setCustomName($nametag);
 		    $item->setLore($lore);
-		    $player->getInventory()->addItem($item);	
+		    $player->getInventory()->addItem($item);			
+			$vector3p = $player->asVector3();
 			
-            $player->sendMessage($config->get("buy_done"));	
+            $player->sendMessage($cf->get("buy_done"));	
             $player->getLevel()->broadcastLevelSoundEvent(
-			    $player->asVector3(), LevelSoundEventPacket::SOUND_LEVELUP,
-				mt_rand()
+			    $vector3p, LevelSoundEventPacket::SOUND_LEVELUP, mt_rand()
 			);			
-		    $player->removeWindow($inventoryAction->getInventory());
+		    $player->removeWindow($inA->getInventory());
 		} else {
-		    $player->sendMessage($config->get("do_not_enought_money"));
+		    $player->sendMessage($cf->get("do_not_enought_money"));
 			$player->getLevel()->broadcastLevelSoundEvent(
-			    $player->asVector3(), LevelSoundEventPacket::SOUND_TELEPORT,
-				mt_rand()
+			    $vector3p, LevelSoundEventPacket::SOUND_TELEPORT, mt_rand()
 			);
-		    $player->removeWindow($inventoryAction->getInventory());
+		    $player->removeWindow($inA->getInventory());
 	    }	
 	}
 	
 	public function sendShopEvent(
 	    Player $player, Item $a,
-		Item $b, SlotChangeAction $inventoryAction) : bool
+		Item $b, SlotChangeAction $inA) : bool
 	{
-		$config = $this->getConfig()->get("items");
-		foreach($config[$this->id[$player->getName()]]["items"] as $items) {
-            if($a->getCustomName() == $items[2]){
+		$csn = $a->getCustomName();
+		$cf = $this->getConfig()->get("items");
+		foreach($cf[$this->id[$player->getName()]]["items"] as $items) {
+            if($csn == $items[2]){
 			    $this->paymentGateways(
 				    $player, $items[5],
 					$items[0], $items[1],
-					$items[6], $inventoryAction,
+					$items[6], $inA,
 					$items[7], $items[8], $items[2]
 				);
 			}			
 		}
 		foreach($this->getConfig()->get("sell_item") as $sell) {
-			if($a->getCustomName() == $sell[2]){
-                $this->sellAll($player, $inventoryAction);
+			if($csn == $sell[2]){
+                $this->sellAll($player, $inA);
 			}
 		}
 		return true;
