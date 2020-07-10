@@ -243,6 +243,7 @@ class Main extends PluginBase implements Listener {
 		$cf = $this->getConfig();
 		$item = Item::get($item, $meta, $count);
 		$money = $this->econapi->myMoney($player->getName());
+		$vector3p = $player->asVector3();
         $nameplayer = $player->getName();
 	    if ($money >= $values) {
 			// Reduce Money 
@@ -277,8 +278,7 @@ class Main extends PluginBase implements Listener {
 			
             $item->setCustomName($nametag);
 		    $item->setLore($lore);
-		    $player->getInventory()->addItem($item);			
-			$vector3p = $player->asVector3();
+		    $player->getInventory()->addItem($item);					
 			
             $player->sendMessage($cf->get("buy_done"));	
             $player->getLevel()->broadcastLevelSoundEvent(
